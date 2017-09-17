@@ -6,14 +6,14 @@ import java.util.Arrays;
 public class Mass implements Measurement
 {
     ArrayList<String> units;
-    String[] lengthUnits = {
-            "Milligrams", "Grams", "Kilograms", "Tonne", "Pound-Mass", "Slug"
+    String[] massUnits = {
+            "Milligrams", "Grams", "Kilograms", "Tonnes", "Ounces", "Pounds-Mass", "Stones"
     };
 
     public Mass()
     {
         units = new ArrayList<String>();
-        units.addAll(Arrays.asList(lengthUnits));
+        units.addAll(Arrays.asList(massUnits));
     }
 
     @Override
@@ -36,29 +36,27 @@ public class Mass implements Measurement
     @Override
     public String toString()
     {
-        return "Length";
+        return "Mass";
     }
 
     public double getConversionFactor(String unit)
     {
         double conversionFactor = Double.NaN;
 
-        if (unit.equals(""))
+        if (unit.equals("Kilograms"))
             conversionFactor = 1.0;
-        else if (unit.equals(""))
+        else if (unit.equals("Milligrams"))
+            conversionFactor = 1000000.0;
+        else if (unit.equals("Grams"))
             conversionFactor = 1000.0;
-        else if (unit.equals(""))
-            conversionFactor = 100.0;
-        else if (unit.equals(""))
+        else if (unit.equals("Tonnes"))
             conversionFactor = 0.001;
-        else if (unit.equals(""))
-            conversionFactor = 39.37;
-        else if (unit.equals(""))
-            conversionFactor = 3.281;
-        else if (unit.equals(""))
-            conversionFactor = 1.09361329;
-        else if (unit.equals(""))
-            conversionFactor = 0.000621371;
+        else if (unit.equals("Ounces"))
+            conversionFactor = 35.274;
+        else if (unit.equals("Pounds-Mass"))
+            conversionFactor = 2.20462;
+        else if (unit.equals("Stones"))
+            conversionFactor = 0.1575;
 
         return conversionFactor;
     }

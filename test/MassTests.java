@@ -28,7 +28,7 @@ public class MassTests
     public void testMassTypes()
     {
         String[] testMassUnits = {
-                "Millimeters", "Centimeters", "Meters", "Kilometers", "Inches", "Feet", "Yards", "Miles"
+                "Milligrams", "Grams", "Kilograms", "Tonnes", "Ounces", "Pounds-Mass", "Stones"
         };
         Mass testMass = new Mass();
 
@@ -45,7 +45,7 @@ public class MassTests
     @Test
     public void testMassConversionFactor1()
     {
-        String unit = "Meters";
+        String unit = "Kilograms";
         double convFactor = 1.0;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
@@ -54,8 +54,8 @@ public class MassTests
     @Test
     public void testMassConversionFactor2()
     {
-        String unit = "Millimeters";
-        double convFactor = 1000.0;
+        String unit = "Milligrams";
+        double convFactor = 1000000.0;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
@@ -63,8 +63,8 @@ public class MassTests
     @Test
     public void testMassConversionFactor3()
     {
-        String unit = "Centimeters";
-        double convFactor = 100.0;
+        String unit = "Grams";
+        double convFactor = 1000.0;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
@@ -72,7 +72,7 @@ public class MassTests
     @Test
     public void testMassConversionFactor4()
     {
-        String unit = "Kilometers";
+        String unit = "Tonnes";
         double convFactor = 0.001;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
@@ -81,8 +81,8 @@ public class MassTests
     @Test
     public void testMassConversionFactor5()
     {
-        String unit = "Inches";
-        double convFactor = 39.37;
+        String unit = "Ounces";
+        double convFactor = 35.274;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
@@ -90,8 +90,8 @@ public class MassTests
     @Test
     public void testMassConversionFactor6()
     {
-        String unit = "Feet";
-        double convFactor = 3.281;
+        String unit = "Pounds-Mass";
+        double convFactor = 2.20462;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
@@ -99,17 +99,8 @@ public class MassTests
     @Test
     public void testMassConversionFactor7()
     {
-        String unit = "Yards";
-        double convFactor = 1.09361329;
-        Mass testMass = new Mass();
-        assertEquals(convFactor, testMass.getConversionFactor(unit));
-    }
-
-    @Test
-    public void testMassConversionFactor8()
-    {
-        String unit = "Miles";
-        double convFactor = 0.000621371;
+        String unit = "Stones";
+        double convFactor = 0.1575;
         Mass testMass = new Mass();
         assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
@@ -117,10 +108,10 @@ public class MassTests
     @Test
     public void testMassConvertValue1()
     {
-        String currentUnit = "Centimeters";
-        String newUnit = "Millimeters";
-        double currentValue = 40.0;
-        double expectedResult = 400.0;
+        String currentUnit = "Milligrams";
+        String newUnit = "Grams";
+        double currentValue = 4.0;
+        double expectedResult = 0.004;
         Mass testMass = new Mass();
 
         double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
@@ -130,10 +121,10 @@ public class MassTests
     @Test
     public void testMassConvertValue2()
     {
-        String currentUnit = "Yards";
-        String newUnit = "Miles";
-        double currentValue = 6000.0;
-        double expectedResult = 3.409091;
+        String currentUnit = "Stones";
+        String newUnit = "Pounds-Mass";
+        double currentValue = 5.0;
+        double expectedResult = 69.9879;
         Mass testMass = new Mass();
 
         double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
@@ -143,10 +134,10 @@ public class MassTests
     @Test
     public void testMassConvertValue3()
     {
-        String currentUnit = "Meters";
-        String newUnit = "Inches";
-        double currentValue = 3.0;
-        double expectedResult = 118.11;
+        String currentUnit = "Ounces";
+        String newUnit = "Tonnes";
+        double currentValue = 15000.0;
+        double expectedResult = 0.42524;
         Mass testMass = new Mass();
 
         double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
