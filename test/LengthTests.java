@@ -7,8 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class UnitConverterTests
+public class LengthTests
 {
+    final double EPSILON = 0.0001;
+
     @Test
     public void testLengthExists()
     {
@@ -81,7 +83,7 @@ public class UnitConverterTests
     public void testLengthConversionFactor5()
     {
         String unit = "Inches";
-        double convFactor = 39.3700787;
+        double convFactor = 39.37;
         Length testLength = new Length();
         assertEquals(convFactor, testLength.getConversionFactor(unit));
     }
@@ -90,7 +92,7 @@ public class UnitConverterTests
     public void testLengthConversionFactor6()
     {
         String unit = "Feet";
-        double convFactor = 3.280839895;
+        double convFactor = 3.281;
         Length testLength = new Length();
         assertEquals(convFactor, testLength.getConversionFactor(unit));
     }
@@ -111,5 +113,44 @@ public class UnitConverterTests
         double convFactor = 0.000621371;
         Length testLength = new Length();
         assertEquals(convFactor, testLength.getConversionFactor(unit));
+    }
+
+    @Test
+    public void testLengthConvertValue1()
+    {
+        String currentUnit = "Centimeters";
+        String newUnit = "Millimeters";
+        double currentValue = 40.0;
+        double expectedResult = 400.0;
+        Length testLength = new Length();
+
+        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
+    }
+
+    @Test
+    public void testLengthConvertValue2()
+    {
+        String currentUnit = "Yards";
+        String newUnit = "Miles";
+        double currentValue = 6000.0;
+        double expectedResult = 3.409091;
+        Length testLength = new Length();
+
+        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
+    }
+
+    @Test
+    public void testLengthConvertValue3()
+    {
+        String currentUnit = "Meters";
+        String newUnit = "Inches";
+        double currentValue = 3.0;
+        double expectedResult = 118.11;
+        Length testLength = new Length();
+
+        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
     }
 }
