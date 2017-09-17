@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+
+<BorderPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
+    <left>
+        <ListView fx:id="measurementSelect" prefWidth="125" />
+    </left>
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="30" left="20" right="20" bottom="10" />
+            </padding>
+            <Label
+                    text="=" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldLeft"
+                       prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <TextField fx:id="textFieldRight"
+                       prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="comboBoxLeft"
+                      prefWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <ComboBox fx:id="comboBoxRight"
+                      prefWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        </GridPane>
+    </center>
+</BorderPane>
