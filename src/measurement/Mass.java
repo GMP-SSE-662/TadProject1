@@ -3,14 +3,14 @@ package measurement;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Length implements Measurement
+public class Mass implements Measurement
 {
     ArrayList<String> units;
     String[] lengthUnits = {
-            "Millimeters", "Centimeters", "Meters", "Kilometers", "Inches", "Feet", "Yards", "Miles"
+            "Milligrams", "Grams", "Kilograms", "Tonne", "Pound-Mass", "Slug"
     };
 
-    public Length()
+    public Mass()
     {
         units = new ArrayList<String>();
         units.addAll(Arrays.asList(lengthUnits));
@@ -43,21 +43,21 @@ public class Length implements Measurement
     {
         double conversionFactor = Double.NaN;
 
-        if (unit.equals("Meters"))
+        if (unit.equals(""))
             conversionFactor = 1.0;
-        else if (unit.equals("Millimeters"))
+        else if (unit.equals(""))
             conversionFactor = 1000.0;
-        else if (unit.equals("Centimeters"))
+        else if (unit.equals(""))
             conversionFactor = 100.0;
-        else if (unit.equals("Kilometers"))
+        else if (unit.equals(""))
             conversionFactor = 0.001;
-        else if (unit.equals("Inches"))
+        else if (unit.equals(""))
             conversionFactor = 39.37;
-        else if (unit.equals("Feet"))
+        else if (unit.equals(""))
             conversionFactor = 3.281;
-        else if (unit.equals("Yards"))
+        else if (unit.equals(""))
             conversionFactor = 1.09361329;
-        else if (unit.equals("Miles"))
+        else if (unit.equals(""))
             conversionFactor = 0.000621371;
 
         return conversionFactor;

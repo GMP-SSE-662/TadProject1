@@ -1,156 +1,155 @@
-import measurement.*;
+import measurement.Mass;
+import measurement.Measurement;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class LengthTests
+public class MassTests
 {
     final double EPSILON = 0.0001;
 
     @Test
-    public void testLengthExists()
+    public void testMassExists()
     {
-        Length testLength = new Length();
-        assertNotNull(testLength);
+        Mass testMass = new Mass();
+        assertNotNull(testMass);
     }
 
     @Test
-    public void testLengthIsMeasurement()
+    public void testMassIsMeasurement()
     {
-        Length testLength = new Length();
-        assertTrue(testLength instanceof Measurement);
+        Mass testMass = new Mass();
+        assertTrue(testMass instanceof Measurement);
     }
 
     @Test
-    public void testLengthTypes()
+    public void testMassTypes()
     {
-        String[] testLengthUnits = {
+        String[] testMassUnits = {
                 "Millimeters", "Centimeters", "Meters", "Kilometers", "Inches", "Feet", "Yards", "Miles"
         };
-        Length testLength = new Length();
+        Mass testMass = new Mass();
 
-        assertEquals(Arrays.asList(testLengthUnits), testLength.getUnits());
+        assertEquals(Arrays.asList(testMassUnits), testMass.getUnits());
     }
 
     @Test
-    public void testLengthToString()
+    public void testMassToString()
     {
-        Length testLength = new Length();
-        assertEquals("Length", testLength.toString());
+        Mass testMass = new Mass();
+        assertEquals("Mass", testMass.toString());
     }
 
     @Test
-    public void testLengthConversionFactor1()
+    public void testMassConversionFactor1()
     {
         String unit = "Meters";
         double convFactor = 1.0;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor2()
+    public void testMassConversionFactor2()
     {
         String unit = "Millimeters";
         double convFactor = 1000.0;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor3()
+    public void testMassConversionFactor3()
     {
         String unit = "Centimeters";
         double convFactor = 100.0;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor4()
+    public void testMassConversionFactor4()
     {
         String unit = "Kilometers";
         double convFactor = 0.001;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor5()
+    public void testMassConversionFactor5()
     {
         String unit = "Inches";
         double convFactor = 39.37;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor6()
+    public void testMassConversionFactor6()
     {
         String unit = "Feet";
         double convFactor = 3.281;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor7()
+    public void testMassConversionFactor7()
     {
         String unit = "Yards";
         double convFactor = 1.09361329;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConversionFactor8()
+    public void testMassConversionFactor8()
     {
         String unit = "Miles";
         double convFactor = 0.000621371;
-        Length testLength = new Length();
-        assertEquals(convFactor, testLength.getConversionFactor(unit));
+        Mass testMass = new Mass();
+        assertEquals(convFactor, testMass.getConversionFactor(unit));
     }
 
     @Test
-    public void testLengthConvertValue1()
+    public void testMassConvertValue1()
     {
         String currentUnit = "Centimeters";
         String newUnit = "Millimeters";
         double currentValue = 40.0;
         double expectedResult = 400.0;
-        Length testLength = new Length();
+        Mass testMass = new Mass();
 
-        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
         assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
     }
 
     @Test
-    public void testLengthConvertValue2()
+    public void testMassConvertValue2()
     {
         String currentUnit = "Yards";
         String newUnit = "Miles";
         double currentValue = 6000.0;
         double expectedResult = 3.409091;
-        Length testLength = new Length();
+        Mass testMass = new Mass();
 
-        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
         assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
     }
 
     @Test
-    public void testLengthConvertValue3()
+    public void testMassConvertValue3()
     {
         String currentUnit = "Meters";
         String newUnit = "Inches";
         double currentValue = 3.0;
         double expectedResult = 118.11;
-        Length testLength = new Length();
+        Mass testMass = new Mass();
 
-        double newValue = testLength.convertValue(currentUnit, currentValue, newUnit);
+        double newValue = testMass.convertValue(currentUnit, currentValue, newUnit);
         assertTrue(Math.abs(newValue - expectedResult) < EPSILON);
     }
 }
