@@ -12,7 +12,7 @@ public class Time implements Measurement
 
     public Time()
     {
-        units = new ArrayList<String>();
+        units = new ArrayList<>();
         units.addAll(Arrays.asList(timeUnits));
     }
 

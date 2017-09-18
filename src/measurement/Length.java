@@ -12,7 +12,7 @@ public class Length implements Measurement
 
     public Length()
     {
-        units = new ArrayList<String>();
+        units = new ArrayList<>();
         units.addAll(Arrays.asList(lengthUnits));
     }
 

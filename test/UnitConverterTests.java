@@ -1,8 +1,9 @@
-import org.junit.jupiter.api.Test;import javafx.fxml.Initializable;
+import org.junit.jupiter.api.Test;
 import measurement.*;
-import sample.Controller;
-
-import static org.junit.jupiter.api.Assertions.*;
+import javafx.fxml.Initializable;
+import view.Controller;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class UnitConverterTests
 {
@@ -56,5 +57,23 @@ public class UnitConverterTests
                 break;
         }
         assertTrue(hasInstance);
+    }
+
+    @Test
+    public void testTextFieldNoSciNot()
+    {
+        Controller testController = new Controller();
+        String testText = "123456789";
+        String expectedText = "1234567";
+        assertEquals(expectedText, testController.handleTextFieldNoSciNot(testText));
+    }
+
+    @Test
+    public void testTextFieldSciNot()
+    {
+        Controller testController = new Controller();
+        String testText = "123456789E-5";
+        String expectedText = "1234E-5";
+        assertEquals(expectedText, testController.handleTextFieldSciNot(testText));
     }
 }

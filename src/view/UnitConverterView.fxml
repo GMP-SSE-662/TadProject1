@@ -8,9 +8,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ComboBox?>
 
-<BorderPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml">
+<BorderPane fx:controller="view.Controller" xmlns:fx="http://javafx.com/fxml">
     <left>
-        <ListView fx:id="listView" prefWidth="125" />
+        <ListView fx:id="measurementSelect" prefWidth="125" />
     </left>
     <center>
         <GridPane hgap="10" vgap="10">
@@ -19,13 +19,13 @@
             </padding>
             <Label
                     text="=" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldLeft" onAction="#handleLeftUnitAction"
+            <TextField fx:id="unitValueInputLeft" onAction="#handleLeftUnitAction"
                        promptText="Input Value" prefWidth="150" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <TextField fx:id="textFieldRight" onAction="#handleRightUnitAction"
+            <TextField fx:id="unitValueInputRight" onAction="#handleRightUnitAction"
                        promptText="Input Value" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ComboBox fx:id="comboBoxLeft" onAction="#handleLeftUnitAction"
+            <ComboBox fx:id="unitSelectLeft" onAction="#handleLeftUnitAction"
                       prefWidth="150" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <ComboBox fx:id="comboBoxRight" onAction="#handleRightUnitAction"
+            <ComboBox fx:id="unitSelectRight" onAction="#handleRightUnitAction"
                       prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="2" />
         </GridPane>
     </center>

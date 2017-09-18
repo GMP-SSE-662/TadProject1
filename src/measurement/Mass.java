@@ -12,7 +12,7 @@ public class Mass implements Measurement
 
     public Mass()
     {
-        units = new ArrayList<String>();
+        units = new ArrayList<>();
         units.addAll(Arrays.asList(massUnits));
     }
 
