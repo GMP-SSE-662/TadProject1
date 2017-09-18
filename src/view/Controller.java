@@ -53,35 +53,28 @@ public class Controller implements Initializable
 
     public void handleLeftUnitAction()
     {
-        if (!unitValueInputLeft.getText().isEmpty())
-        {
-            double currentValue = Double.parseDouble(unitValueInputLeft.getText());
-            String currentUnit = unitSelectLeft.getSelectionModel().getSelectedItem();
-            String newUnit = unitSelectRight.getSelectionModel().getSelectedItem();
-            String rightText = String.valueOf(currentMeasurement.convertValue(currentUnit, currentValue, newUnit));
-            if (rightText.length() > MAX_NO_SCI_LENGTH && !rightText.contains("E"))
-                unitValueInputRight.setText(handleTextFieldNoSciNot(rightText));
-            else if (rightText.length() > MAX_SCI_LENGTH && rightText.contains("E"))
-                unitValueInputRight.setText(handleTextFieldSciNot(rightText));
-            else
-                unitValueInputRight.setText(rightText);
-        }
+        changeOtherUnit(unitValueInputLeft, unitValueInputRight, unitSelectLeft, unitSelectRight);
     }
 
     public void handleRightUnitAction()
     {
-        if (!unitValueInputRight.getText().isEmpty())
+        changeOtherUnit(unitValueInputRight, unitValueInputLeft, unitSelectRight, unitSelectLeft);
+    }
+
+    public void changeOtherUnit(TextField input, TextField output, ComboBox<String> inputSelect, ComboBox<String> outputSelect)
+    {
+        if (!input.getText().isEmpty())
         {
-            double currentValue = Double.parseDouble(unitValueInputRight.getText());
-            String currentUnit = unitSelectRight.getSelectionModel().getSelectedItem();
-            String newUnit = unitSelectLeft.getSelectionModel().getSelectedItem();
+            double currentValue = Double.parseDouble(input.getText());
+            String currentUnit = inputSelect.getSelectionModel().getSelectedItem();
+            String newUnit = outputSelect.getSelectionModel().getSelectedItem();
             String leftText = String.valueOf(currentMeasurement.convertValue(currentUnit, currentValue, newUnit));
             if (leftText.length() > MAX_NO_SCI_LENGTH && !leftText.contains("E"))
-                unitValueInputLeft.setText(handleTextFieldNoSciNot(leftText));
+                output.setText(handleTextFieldNoSciNot(leftText));
             else if (leftText.length() > MAX_SCI_LENGTH && leftText.contains("E"))
-                unitValueInputLeft.setText(handleTextFieldSciNot(leftText));
+                output.setText(handleTextFieldSciNot(leftText));
             else
-                unitValueInputLeft.setText(leftText);
+                output.setText(leftText);
         }
     }
 
